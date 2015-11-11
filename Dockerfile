@@ -2,28 +2,45 @@ FROM ubuntu:wily
 MAINTAINER Jakob Jarosch <dev@jakobjarosch.de>
 
 RUN apt-get update && \
-    apt-get install -y wget lib32gcc1
+    apt-get install -y wget lib32gcc1 lib32tinfo5 unzip nginx
 
 RUN useradd -ms /bin/bash steam
-USER steam
 WORKDIR /home/steam
 
 RUN wget -O /tmp/steamcmd_linux.tar.gz http://media.steampowered.com/installer/steamcmd_linux.tar.gz && \
     tar -xvzf /tmp/steamcmd_linux.tar.gz && \
     rm /tmp/steamcmd_linux.tar.gz
 
-ADD ./entrypoint.sh entrypoint.sh
-
 # Install CSS once to speed up container startup
-RUN ./entrypoint.sh norun # Update to date as of 2015-11-10
+RUN ./steamcmd.sh +login anonymous +force_install_dir ./css +app_update 232330 validate +quit # Update to date as of 2015-11-10
+RUN chown -R steam:steam .
 
 ENV CSS_HOSTNAME Counter-Strike Source Dedicated Server
 ENV CSS_PASSWORD ""
 ENV RCON_PASSWORD mysup3rs3cr3tpassw0rd
 
-ADD ./css css
+EXPOSE 27015/udp
+EXPOSE 27015
+EXPOSE 1200
+EXPOSE 27005/udp
+EXPOSE 27020/udp
+EXPOSE 26901/udp
 
-EXPOSE 27015/udp # Game Port
-EXPOSE 27015     # RCON Port
+ADD ./entrypoint.sh entrypoint.sh
+
+# Add Source Mods
+ADD mods/ /temp
+RUN cd /home/steam/css/cstrike && \
+    tar zxvf /temp/mmsource-1.10.6-linux.tar.gz && \
+    tar zxvf /temp/sourcemod-1.7.3-git5275-linux.tar.gz && \
+    unzip /temp/quake_sounds1.8.zip && \
+    mv /temp/gem_damage_report.smx addons/sourcemod/plugins && \
+    rm /temp/*
+
+# Add default configuration files
+ADD cfg/ /home/steam/css/cstrike/cfg
+
+RUN chown -R steam:steam .
+USER steam
 
 CMD ./entrypoint.sh

@@ -4,11 +4,10 @@ Vagrant.configure(2) do |config|
   config.vm.box = "ubuntu/wily64"
   config.ssh.shell = "bash"
 
-  config.vm.define "dev" do |machine|
-    machine.vm.provision "dev", type: "shell", path: ".vagrant/provision.sh"
-    machine.vm.provider "virtualbox" do |vb|
-      vb.memory = 1024
-      vb.cpus = 1
-    end
+  config.vm.network "public_network"
+  config.vm.provision "dev", type: "shell", path: ".vagrant/provision.sh"
+  config.vm.provider "virtualbox" do |vb|
+    vb.memory = 1024
+    vb.cpus = 1
   end
 end
