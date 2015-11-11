@@ -40,4 +40,3 @@ The default server.cfg can also be overriden, but you can also only override som
 ```
 -v /path/to/my-server.cfg:/home/steam/css/cstrike/cfg/my-server.cfg
 ```
-The file is executed on every round start and server restart.
