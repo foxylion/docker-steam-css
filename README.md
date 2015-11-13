@@ -34,9 +34,21 @@ docker run -d --name css-server-27015 \
 -v /path/to/mapcycle.txt:/home/steam/css/cstrike/cfg/mapcycle.txt
 ```
 
-## Modified server.cfg
+### SourceMod admins_simple.ini
+
+To control the SourceMod admins on the server you can use your own admins.cfg or admins_simple.ini file.
+
+```
+-v /path/to/admins_simple.ini:/home/steam/css/cstrike/addons/sourcemod/configs/admin_simple.ini
+```
+
+### Modified server.cfg
 
 The default server.cfg can also be overriden, but you can also only override some specific settings, therefore use the following pattern
 ```
 -v /path/to/my-server.cfg:/home/steam/css/cstrike/cfg/my-server.cfg
 ```
+
+### Other configuration files
+
+Any other configuration file can also be overriden using the same method as above, you must just locate the right file in the docker container.
