@@ -26,6 +26,14 @@ docker run -d --name css-server-27015 \
 - ``CSS_HOSTNAME`` is your custom server name shown in the server list
 - ``CSS_PASSWORD`` is the password a user may require to connect, can be left empty
 
+## Expose you maps and sounds as a htdocs directory
+
+You can mount a directory where the css server should copy all currently installed maps and sounds so you can use the `sv_downloadurl` option.
+
+```
+- v /path/to/target:/home/steam/htdocs
+```
+
 ## Available files to override
 
 ### Custom mapcycle.txt
