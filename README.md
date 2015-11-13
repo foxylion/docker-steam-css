@@ -47,7 +47,7 @@ You can mount a directory where the css server should copy all currently install
 To control the SourceMod admins on the server you can use your own admins.cfg or admins_simple.ini file.
 
 ```
--v /path/to/admins_simple.ini:/home/steam/css/cstrike/addons/sourcemod/configs/admin_simple.ini
+-v /path/to/admins_simple.ini:/home/steam/css/cstrike/addons/sourcemod/configs/admins_simple.ini
 ```
 
 ### Modified server.cfg
