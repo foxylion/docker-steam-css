@@ -51,4 +51,4 @@ The default server.cfg can also be overriden, but you can also only override som
 
 ### Other configuration files
 
-Any other configuration file can also be overriden using the same method as above, you must just locate the right file in the docker container.
+Any other configuration file can also be overriden using the same method as above, you must just locate the right file in the docker container. The folder structure is the same as when you install the server locally.
