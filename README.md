@@ -8,7 +8,7 @@ List of used plugins:
 - [Quake Sounds v1.8](https://forums.alliedmods.net/showthread.php?t=58548)
 - [Damage Report/Stats v1.1.13](https://forums.alliedmods.net/showthread.php?t=64661)
 
-## Start the docker container
+## Start the container
 
 The docker container requires some ports to be exposed, therefore a more advanced run command is required.
 
@@ -18,6 +18,15 @@ docker run -d --name css-server-27015 \
            -p 27005:27005/udp -p 27020:27020/udp -p 26901:26901/udp \
            -e RCON_PASSWORD=mypassword \
            foxylion/steam-css
+```
+
+## Restart the container
+
+Due to the linux kernel is caching the udp connection state you have to manually clean the udp connection tracking, before you can immediately reconenct to the server. More details can be found [here](https://github.com/docker/docker/issues/8795).
+
+```
+apt-get install conntrack
+conntrack -D -p udp
 ```
 
 ## Available Environment Variables
@@ -34,7 +43,7 @@ You can mount a directory where the css server should copy all currently install
 - v /path/to/target:/home/steam/htdocs
 ```
 
-## Available files to override
+## Other files to override
 
 ### Custom mapcycle.txt
 
