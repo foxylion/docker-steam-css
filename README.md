@@ -9,6 +9,7 @@ List of used plugins:
 - [SourceMod v1.7.3-5275](http://www.sourcemod.net/downloads.php?branch=stable)
 - [Quake Sounds v1.8](https://forums.alliedmods.net/showthread.php?t=58548)
 - [Damage Report/Stats v1.1.13](https://forums.alliedmods.net/showthread.php?t=64661)
+- [MapChooser Extended 1.10.2](https://forums.alliedmods.net/showthread.php?t=156974)
 
 ## Start the container
 
