@@ -1,6 +1,6 @@
-# Docker Container for Counter-Strike Source
+# Docker Image for Counter-Strike Source
 
-This docker container provides a preconfigured Counter-Strike Source server with several plugins.
+This docker image provides a preconfigured Counter-Strike Source server with several plugins.
 
 List of used plugins:
 - [metamod:source v1.10.6](http://www.metamodsource.net/downloads/)
