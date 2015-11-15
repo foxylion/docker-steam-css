@@ -2,6 +2,8 @@
 
 This docker image provides a preconfigured Counter-Strike Source server with several plugins.
 
+The Docker image in the Docker Hub can be found [here](https://hub.docker.com/r/foxylion/steam-css/).
+
 List of used plugins:
 - [metamod:source v1.10.6](http://www.metamodsource.net/downloads/)
 - [SourceMod v1.7.3-5275](http://www.sourcemod.net/downloads.php?branch=stable)
