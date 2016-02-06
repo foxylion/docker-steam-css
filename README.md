@@ -1,5 +1,8 @@
 # Docker Image for Counter-Strike Source
 
+[![Docker Stars](https://img.shields.io/docker/stars/foxylion/steam-css.svg?style=flat-square)](https://hub.docker.com/r/foxylion/steam-css/)
+[![Docker Pulls](https://img.shields.io/docker/pulls/foxylion/steam-css.svg?style=flat-square)](https://hub.docker.com/r/foxylion/steam-css/)
+
 This docker image provides a preconfigured Counter-Strike Source server with several plugins.
 
 The Docker image in the Docker Hub can be found [here](https://hub.docker.com/r/foxylion/steam-css/).
