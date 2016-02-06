@@ -12,7 +12,7 @@ RUN wget -O /tmp/steamcmd_linux.tar.gz http://media.steampowered.com/installer/s
     rm /tmp/steamcmd_linux.tar.gz
 
 # Install CSS once to speed up container startup
-RUN ./steamcmd.sh +login anonymous +force_install_dir ./css +app_update 232330 validate +quit # Update to date as of 2015-11-10
+RUN ./steamcmd.sh +login anonymous +force_install_dir ./css +app_update 232330 validate +quit # Update to date as of 2016-02-06
 RUN chown -R steam:steam .
 
 ENV CSS_HOSTNAME Counter-Strike Source Dedicated Server
