@@ -1,5 +1,4 @@
-FROM ubuntu:wily
-MAINTAINER Jakob Jarosch <dev@jakobjarosch.de>
+FROM ubuntu:xenial
 
 RUN apt-get update && \
     apt-get install -y wget lib32gcc1 lib32tinfo5 unzip nginx
