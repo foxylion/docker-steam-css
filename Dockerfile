@@ -27,6 +27,11 @@ EXPOSE 26901/udp
 
 ADD ./entrypoint.sh entrypoint.sh
 
+# Support for 64-bit systems
+# https://www.gehaxelt.in/blog/cs-go-missing-steam-slash-sdk32-slash-steamclient-dot-so/
+RUN mkdir /home/steam/.steam
+RUN ln -s /home/steam/linux32/ /home/steam/.steam/sdk32
+
 # Add Source Mods
 ADD mods/ /temp
 RUN cd /home/steam/css/cstrike && \
